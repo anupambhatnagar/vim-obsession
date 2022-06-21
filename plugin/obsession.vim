@@ -28,7 +28,7 @@ function! s:dispatch(bang, file) abort
     elseif empty(a:file)
       let file = getcwd() . '/Session.vim'
     elseif isdirectory(a:file)
-      let file = substitute(fnamemodify(expand(a:file), ':p'), '[\/]$', '', '')
+      let file = substitute(fnamemodify(expand(a:file), ':p'), '[\/]S', '', '')
             \ . '/Session.vim'
     else
       let file = fnamemodify(expand(a:file), ':p')
@@ -108,7 +108,7 @@ function! ObsessionStatus(...) abort
     endif
   endif
   if empty(args)
-    let args = ['[$]', '[S]']
+    let args = ['[S]', '[0]']
   endif
   if len(args) == 1 && numeric == 1
     let fmt = args[0]
